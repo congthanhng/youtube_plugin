@@ -1,6 +1,6 @@
-package org.jetbrains.plugins.template.services
+package com.github.congthanhng.youtubeplugin.services
 
-import org.jetbrains.plugins.template.MyBundle
+import com.github.congthanhng.youtubeplugin.MyBundle
 
 class MyApplicationService {
 

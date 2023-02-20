@@ -1,18 +1,21 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.congthanhng.youtubeplugin</id>
-    <name>IntelliJ Platform Plugin youtube_plugin</name>
+    <name>Youtube</name>
     <vendor>congthanhng</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.congthanhng.youtubeplugin.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.congthanhng.youtubeplugin.services.MyProjectService"/>
+        <applicationService serviceImplementation="com.github.congthanhng.youtubeplugin.persistents.HelloSetting"/>
+        <toolWindow id="Youtube" secondary="true" icon="AllIcons.Actions.Run_anything" anchor="right"
+                    factoryClass="com.github.congthanhng.youtubeplugin.tool_window.MyToolWindowFactory"/>
     </extensions>
 
-    <applicationListeners>
-        <listener class="com.github.congthanhng.youtubeplugin.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
-    </applicationListeners>
+    <actions>
+        <group id="Youtube.Hello" text="MyFirstAction" description="It is the first action">
+            <add-to-group group-id="MainMenu" anchor="last"/>
+            <action class="com.github.congthanhng.youtubeplugin.actions.HelloAction" id="Youtube.Actions.Hello" text="Say hello"/>
+        </group>
+    </actions>
 </idea-plugin>
